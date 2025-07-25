@@ -1,0 +1,337 @@
+/* Shared container background */
+.login-bg {
+  position: relative;
+  background: linear-gradient(to bottom right, #e0f7fa, #f9f9f9);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Glassmorphic box */
+.box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons (already existing in your styles) */
+.btn:hover {
+  background-color: #444;
+}
+
+/* Elliptical top-right decoration */
+.top-ellipse {
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  background: rgba(173, 216, 230, 0.3);
+  filter: blur(30px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Bottom-left rectangle */
+.bottom-rectangle {
+  position: absolute;
+  bottom: -40px;
+  left: -60px;
+  width: 300px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(20px);
+  transform: rotate(-10deg);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* Box should stay in front */
+.box {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* Background container */
+.forgot-bg {
+  position: relative;
+  background: linear-gradient(135deg, #506b9d, #e3a1e4);
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 80px;
+}
+
+/* Card Box */
+.forgot-box {
+  width: 350px;
+  padding: 30px;
+  background: rgba(251, 249, 249, 0.936);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(23, 2, 2, 0.568);
+  text-align: center;
+}
+
+/* Inputs already styled in .input class */
+
+/* Button already styled in .btn */
+
+/* Blurred Shapes */
+.blur-shape-bottom-left {
+  position: absolute;
+  bottom: -30px;
+  left: -40px;
+  width: 200px;
+  height: 200px;
+  background: rgba(41, 85, 91, 0.663);
+  filter: blur(30px);
+  border-radius: 20px;
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+.ellipse-shape-top-right {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 220px;
+  height: 150px;
+  background: rgba(51, 79, 85, 0.1);
+  filter: blur(25px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.forgot-link a {
+  color: #007bff;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.forgot-link a:hover {
+  color: #0056b3;
+}
+
+.welcome-container {
+  
+  background: #020024;
+  background: linear-gradient(90deg, rgb(59, 2, 74) 0%, rgb(119, 27, 123) 44%, rgb(231, 142, 245) 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* For Login Page */
+.login-container {
+ 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.register-bg {
+  
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.link {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #00d4ff;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #f1f3f6, #ffe6ff);
+}
+
+.login-bg, .register-bg {
+  background: #fff;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 320px;
+  border: 1px solid white;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 20px;
+  background: #0c0000;
+  color: white;
+  font-size: 14px;
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.purple-text {
+  color: #5e0b81;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Left Image Section */
+.left-img-panel {
+  flex: 1.5;
+  background-image: url('./images/signup.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Right form section already styled with .register-bg */
+.register-bg {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blurred Gradient Shape */
+.blurred-shape {
+  position: absolute;
+  top: -20%;
+  left: -15%;
+  width: 70%;
+  height: 140%;
+  background: linear-gradient(135deg, #d2a8f5, #f0c3f4);
+  filter: blur(100px);
+  opacity: 0.7;
+  transform: rotate(15deg);
+  z-index: 1;
+}
+
+/* Login Card */
+.login-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(200, 195, 200, 0.85); /* soft dim card */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 360px;
+  text-align: center;
+}
+
+/* Inputs and Button */
+.input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 20px;
+  background: black;
+  color: white;
+  font-size: 14px;
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #000;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #333;
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-family: 'Georgia', serif;
+}

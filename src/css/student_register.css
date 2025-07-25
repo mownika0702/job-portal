@@ -1,0 +1,129 @@
+.student-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.student-image {
+  width: 70%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+  position: absolute;
+  left: 0; /* 📸 Image on left side */
+  top: 0;
+  z-index: 1;
+}
+
+.student-form {
+  position: absolute;
+  top: 50%;
+  right: 5%; /* 📋 Card on right side */
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 40px;
+  width: 380px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: bold;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.input-icon {
+  margin-right: 10px;
+  color: #555;
+}
+
+.input-wrapper input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.send-code-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0057a3;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-code-btn:hover {
+  background: #003d73;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #999;
+  color: white;
+  font-size: 16px;
+  cursor: not-allowed;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn.enabled {
+  background-color: #333;
+  cursor: pointer;
+}
+
+.register-btn.enabled:hover {
+  background-color: #000;
+}
+
+.note {
+  font-size: 13px;
+  color: #444;
+  margin-top: -5px;
+}
+
+.note.warn {
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.input-wrapper {
+  position: relative;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
