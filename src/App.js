@@ -6,6 +6,9 @@ import AccountType from './pages/AccountType';
 import StudentRegister from './pages/StudentRegister';
 import RecruiterRegister from './pages/RecruiterRegister';
 import ForgotPassword from './pages/ForgotPassword';
+import RecruiterVerify from './pages/RecruIterVerify';
+import VerifyMail from './pages/verify-email';
+
 
 function App() {
   return (
@@ -18,6 +21,11 @@ function App() {
           <Route path="/student-register" element={<StudentRegister />} />
           <Route path="/recruiter-register" element={<RecruiterRegister />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/verify-email" element={<VerifyMail />} />
+          <Route path="/recruiter-verify" element={<RecruiterVerify />} />
+
+          
+
         </Routes>
       </div>
     </Router>

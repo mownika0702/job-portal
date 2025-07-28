@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import '../css/recruiter.css';
 import bg from '../images/signup.jpg';
 
@@ -8,14 +9,13 @@ function RecruiterRegister() {
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
-    code: '',
+    confirmPassword: ''
   });
 
-  const [codeSent, setCodeSent] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
   const isValidEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -27,7 +27,6 @@ function RecruiterRegister() {
     isValidEmail(form.email) &&
     form.password &&
     form.confirmPassword &&
-    form.code &&
     doPasswordsMatch;
 
   const handleChange = (e) => {
@@ -35,31 +34,18 @@ function RecruiterRegister() {
     setError('');
   };
 
-  const handleSendCode = () => {
-    if (!isValidEmail(form.email)) {
-      setError('Please enter a valid email address to send the code.');
-      return;
-    }
-
-    setCodeSent(true);
-    alert('Verification code sent to your email!');
-  };
-
   const handleSubmit = () => {
-    if (!form.code) {
-      setError('Enter the verification code before registering.');
-      return;
-    }
-
     if (!doPasswordsMatch) {
       setError('Passwords do not match.');
       return;
     }
 
     if (isFormValid) {
-      alert('Recruiter registered successfully!');
+      // Optionally store data in localStorage or context
+      localStorage.setItem('recruiter-register', JSON.stringify(form));
+      navigate('/recruiter-verify');
     } else {
-      setError('Please fill all fields and verify your email.');
+      setError('Please fill all fields correctly.');
     }
   };
 
@@ -70,7 +56,6 @@ function RecruiterRegister() {
       <div className="recruiter-form">
         <h2 className="form-title">Recruiter Register</h2>
 
-        {/* Name */}
         <div className="input-wrapper">
           <FaUser className="input-icon" />
           <input
@@ -82,7 +67,6 @@ function RecruiterRegister() {
           />
         </div>
 
-        {/* Email */}
         <div className="input-wrapper">
           <FaEnvelope className="input-icon" />
           <input
@@ -94,12 +78,6 @@ function RecruiterRegister() {
           />
         </div>
 
-        {/* Send Code Button */}
-        <button className="send-code-btn" onClick={handleSendCode}>
-          Send Verification Code
-        </button>
-
-        {/* Password */}
         <div className="input-wrapper">
           <FaLock className="input-icon" />
           <input
@@ -114,7 +92,6 @@ function RecruiterRegister() {
           </span>
         </div>
 
-        {/* Confirm Password */}
         <div className="input-wrapper">
           <FaLock className="input-icon" />
           <input
@@ -129,20 +106,6 @@ function RecruiterRegister() {
           </span>
         </div>
 
-        {/* Verification Code */}
-        <div className="input-wrapper">
-          <FaLock className="input-icon" />
-          <input
-            type="text"
-            name="code"
-            placeholder="Enter Verification Code"
-            value={form.code}
-            onChange={handleChange}
-          />
-        </div>
-
-        <p className="note">Enter the code sent to your email.</p>
-        <p className="note warn">You can register only after email verification.</p>
         {!doPasswordsMatch && form.confirmPassword && (
           <p className="warn">Passwords do not match.</p>
         )}
@@ -152,7 +115,7 @@ function RecruiterRegister() {
           className={`register-btn ${isFormValid ? 'enabled' : ''}`}
           onClick={handleSubmit}
         >
-          REGISTER
+          Next
         </button>
       </div>
     </div>

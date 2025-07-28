@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import '../css/student_register.css';
 import bg from '../images/signup.jpg';
 
@@ -8,17 +9,15 @@ function StudentRegister() {
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
-    code: ''
+    confirmPassword: ''
   });
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [codeSent, setCodeSent] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
   const doPasswordsMatch = form.password === form.confirmPassword;
 
   const isFormValid =
@@ -26,7 +25,6 @@ function StudentRegister() {
     isValidEmail(form.email) &&
     form.password &&
     form.confirmPassword &&
-    form.code &&
     doPasswordsMatch;
 
   const handleChange = (e) => {
@@ -34,31 +32,17 @@ function StudentRegister() {
     setError('');
   };
 
-  const handleSendCode = () => {
-    if (!isValidEmail(form.email)) {
-      setError('Please enter a valid email address to send the code.');
-      return;
-    }
-
-    setCodeSent(true);
-    alert('Verification code sent to your email!');
-  };
-
   const handleSubmit = () => {
-    if (!form.code) {
-      setError('Enter the verification code before registering.');
-      return;
-    }
-
     if (!doPasswordsMatch) {
       setError('Passwords do not match.');
       return;
     }
 
     if (isFormValid) {
-      alert('Student registered successfully!');
+      alert('Proceed to email verification!');
+      navigate('/verify-email', { state: { email: form.email } }); // 👈 navigate with email
     } else {
-      setError('Please fill all fields and verify your email.');
+      setError('Please fill all fields correctly.');
     }
   };
 
@@ -91,10 +75,6 @@ function StudentRegister() {
           />
         </div>
 
-        <button className="send-code-btn" onClick={handleSendCode}>
-          Send Verification Code
-        </button>
-
         <div className="input-wrapper">
           <FaLock className="input-icon" />
           <input
@@ -126,20 +106,6 @@ function StudentRegister() {
         {form.confirmPassword && !doPasswordsMatch && (
           <p className="warn">Passwords do not match</p>
         )}
-
-        <div className="input-wrapper">
-          <FaLock className="input-icon" />
-          <input
-            type="text"
-            name="code"
-            placeholder="Enter Verification Code"
-            value={form.code}
-            onChange={handleChange}
-          />
-        </div>
-
-        <p className="note">Enter the code sent to your email.</p>
-        <p className="note warn">You can register only after email verification.</p>
 
         {error && <p className="error">{error}</p>}
 
